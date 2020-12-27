@@ -1,0 +1,24 @@
+<template>
+    <lightning-layout-item size="12" >
+        <h1 if:true={anyTodo} class="section-heading">Your to-do list</h1>
+        <template for:each={todos} for:item="todo">
+            <div key={todo.id} >
+                {todo.item}
+                <lightning-button-icon value={todo.id} icon-name="utility:check" title="check task" onclick={handleCheckTask}></lightning-button-icon>
+                <lightning-button-icon value={todo.id} icon-name="utility:delete" title="delete task" onclick={handleDeleteTask}></lightning-button-icon>
+                
+            </div>
+            
+        </template>
+        
+    </lightning-layout-item>
+    <lightning-layout-item size="12" >
+        <h1 class="section-heading" if:true={anyChecked}>Completed tasks</h1>
+        <template for:each={checkedTasks} for:item="checkedTask">
+            <div key={checkedTask.id}>
+                {checkedTask.item}
+                
+            </div>
+        </template>
+    </lightning-layout-item>
+</template>

@@ -1,0 +1,53 @@
+<template>
+    <lightning-layout class ="slds-align_abosolute-center slds-text-align_center container" multiple-rows>
+        <lightning-layout-item size="12" >
+            <div class="time">
+                {time}
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <div class="greeting">
+                {greeting}
+            </div>
+        </lightning-layout-item>
+        <lightning-layout>
+
+            <lightning-layout-item size="11">
+                <lightning-input type="text" label="new task" placeholder="Write your new task here!" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        
+            <lightning-layout-item size="1">
+                <lightning-button-icon icon-name="utility:add" title="new task" onclick={handleAddTask}></lightning-button-icon>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+
+            <!-- <lightning-layout-item size="12" >
+                <h1 if:true={anyTodo} class="section-heading">Your to-do list</h1>
+                <template for:each={todos} for:item="todo">
+                    <div key={todo.id} >
+                        {todo.item}
+                        <lightning-button-icon value={todo.id} icon-name="utility:check" title="check task" onclick={handleCheckTask}></lightning-button-icon>
+                        <lightning-button-icon value={todo.id} icon-name="utility:delete" title="delete task" onclick={handleDeleteTask}></lightning-button-icon>
+                        
+                    </div>
+                    
+                </template>
+                
+            </lightning-layout-item>
+            <lightning-layout-item size="12" >
+                <h1 class="section-heading" if:true={anyChecked}>Completed tasks</h1>
+                <template for:each={checkedTasks} for:item="checkedTask">
+                    <div key={checkedTask.id}>
+                        {checkedTask.item}
+                        
+                    </div>
+                </template>
+            </lightning-layout-item> -->
+
+            
+            <c-to-do-list todos={todos} onchangetodos={handleChangeTodos}></c-to-do-list>
+
+          
+    </lightning-layout>
+</template>
